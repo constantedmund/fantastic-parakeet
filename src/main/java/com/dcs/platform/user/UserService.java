@@ -1,5 +1,6 @@
 package com.dcs.platform.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -10,18 +11,14 @@ import java.util.List;
 @Component
 public class UserService {
 
+    private final UsersRepository usersRepository;
 
-    public List<User> getUsers(){
-        return List.of(
-                new User(
-                        1L,
-                        "edmund",
-                        "ced@mail.com",
-                        150,
-                        true,
-                        LocalDate.of(1985, Month.SEPTEMBER,23)
+    @Autowired
+    public UserService(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
+    }
 
-                )
-        );
+    public List<Users> getUsers(){
+        return usersRepository.findAll();
     }
 }
