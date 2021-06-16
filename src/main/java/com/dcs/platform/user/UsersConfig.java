@@ -34,7 +34,7 @@ public class UsersConfig {
                     LocalDate.of(1985, Month.SEPTEMBER,29)
 
             );
-            repository.saveAll(List.of(edmund,alex));
+            repository.saveAll(List.of(edmund,alex,edmund));
         };
     }
 }
